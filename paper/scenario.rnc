@@ -1,0 +1,55 @@
+# The document model of a prototypical
+# set of stimuli scripting a particular scenario
+
+datatypes xsd = "http://www.w3.org/2001/XMLSchema-datatypes"
+
+# a scenario has a name and a bunch of events
+start = element scenario {
+  element name { text },
+  element events { event+ }
+ }
+
+# each event is triggered by a document of a particular document type and
+# generates a number of stimuli that will impact the DBTR state machines
+event = element event {
+  attribute xml:id { xsd:ID },
+  element name { text },
+  (
+   (
+    element document-type { text },
+    element sender { text },
+    element receiver { text }
+   )
+   |
+   element sender { text }?
+  ),
+  element stimuli { stimulus+ }
+ }
+
+# a stimulus may be associated with instances of property values
+stimulus = element stimulus {
+  attribute ref { xsd:NMTOKEN },      # the identity of the stimulus
+  attribute target { xsd:NMTOKENS }?, # when no target instance, stimuli sent
+                                      # to all instances
+  element name { text },              # for reporting purposes
+  element instances { instance+ }?    # this creates instances of the machine
+ }
+
+# each instance has a name and a number of properties
+instance = element instance {
+  attribute ref { xsd:NMTOKEN },# unique reference by which instance referenced
+  (
+   attribute prototype { xsd:NMTOKEN } # defines a reusable set of properties
+   |
+   attribute type { xsd:NMTOKEN }      # leverages a reusable set of properties
+  )?,
+  element name { text }, # for reporting purposes
+  element properties {
+    element property {
+      element name { text },
+      element value { text }
+     }+
+   }?
+ }
+
+# end

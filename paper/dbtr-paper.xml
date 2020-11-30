@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dbtr>
+<name>Pre-payment procurement process</name>
+<machines>
+  
+  <machine>
+    <name>Economic Agent Type</name>
+    <definition id="agent-type" reusable="true">
+      <states>
+        <state>
+          <change stimulus-ref="identify-agent-type"
+                  new-state="agent-type-identified"/>
+        </state>
+        <state id="agent-type-identified">
+          <change stimulus-ref="modify-agent-type"
+                  new-state="agent-type-identified"/>
+        </state>
+      </states>
+    </definition>
+  </machine>
+  <machine>
+    <name>Economic Agent</name>
+    <definition id="agent" reusable="true">
+      <states>
+        <state>
+          <change stimulus-ref="identify-agent" new-state="participating"/>
+        </state>
+        <state id="participating">
+          <change stimulus-ref="modify-agent"
+                  new-state="participating"/>
+        </state>
+      </states>
+    </definition>
+  </machine>
+  
+  <machine>
+    <name>Economic Resource Type</name>
+    <definition id="resource-type" reusable="true">
+      <states>
+        <state>
+          <change stimulus-ref="identify-resource-type"
+                  new-state="resource-type-identified"/>
+        </state>
+        <state id="resource-type-identified">
+          <change stimulus-ref="modify-resource-type"
+                  new-state="resource-type-identified"/>
+        </state>
+      </states>
+    </definition>
+  </machine>
+
+  <machine>
+    <name>Economic Resource</name>
+    <definition id="resource" reusable="true">
+      <states>
+        <state>
+          <change stimulus-ref="identify-available-resource" new-state="available"/>
+        </state>
+        <state id="available">
+          <change stimulus-ref="reserve" new-state="reserved"/>
+          <change stimulus-ref="modify-available-resource" new-state="available"/>
+        </state>
+        <state id="reserved">
+          <change stimulus-ref="modify-available-resource" new-state="reserved"/>
+          <change stimulus-ref="deliver" new-state="exchanged"/>
+          <change stimulus-ref="exchange" new-state="exchanged"/>
+        </state>
+        <state id="exchanged"/>
+      </states>
+    </definition>
+  </machine>
+
+  <machine>
+    <name>Economic Contract</name>
+    <definition id="contract">
+      <states>
+        <state>
+          <change stimulus-ref="offer-contract" new-state="offered"/>
+        </state>
+        <state id="offered">
+          <change stimulus-ref="accept-contract" new-state="accepted"/>
+        </state>
+        <state id="accepted">
+          <change stimulus-ref="modify-contract" new-state="accepted"/>
+          <change stimulus-ref="complete-contract" new-state="contract-complete"/>
+        </state>
+        <state id="contract-complete"/>
+      </states>
+    </definition>
+  </machine>
+
+  <machine>
+    <name>Economic Commitment</name>
+    <definition id="commitment">
+      <states>
+        <state>
+          <change stimulus-ref="propose-commitment" new-state="proposed"/>
+        </state>
+        <state id="proposed">
+          <change stimulus-ref="accept-commitment" new-state="specified"/>
+          <change stimulus-ref="modify-commitment" new-state="proposed"/>
+        </state>
+        <state id="specified">
+          <change stimulus-ref="modify-commitment" new-state="specified"/>
+          <change stimulus-ref="complete-commitment"
+                  new-state="commitment-complete"/>
+        </state>
+        <state id="commitment-complete"/>
+      </states>
+    </definition>
+  </machine>
+  
+  <machine>
+    <name>Economic Event Type</name>
+    <definition id="event-type" reusable="true">
+      <states>
+        <state>
+          <change stimulus-ref="identify-event-type"
+                  new-state="event-type-identified"/>
+        </state>
+        <state id="event-type-identified">
+          <change stimulus-ref="modify-event-type"
+                  new-state="event-type-identified"/>
+        </state>
+      </states>
+    </definition>
+  </machine>
+
+  <machine>
+    <name>Economic Event</name>
+    <definition id="event">
+      <states>
+        <state>
+          <change stimulus-ref="initiate-event" new-state="underway"/>
+        </state>
+        <state id="underway">
+          <change stimulus-ref="modify-event" new-state="underway"/>
+          <change stimulus-ref="complete-event" new-state="event-complete"/>
+        </state>
+        <state id="event-complete"/>
+      </states>
+    </definition>
+  </machine>
+  
+  <machine display-priority="100">
+    <name>Business Process Overview</name>
+    <definition id="process">
+      <states>
+        <state>
+          <change stimulus-ref="request-catalogue" new-state="planning"/>
+          <change stimulus-ref="request-quotation" new-state="identification"/>
+        </state>
+        <state id="planning">
+          <change stimulus-ref="request-quotation" new-state="identification"/>
+          <change stimulus-ref="abandon" new-state="post-actualization"/>
+        </state>
+        <state id="identification">
+          <change stimulus-ref="quotation" new-state="negotiation"/>
+          <change stimulus-ref="abandon" new-state="post-actualization"/>
+        </state>
+        <state id="negotiation">
+          <change stimulus-ref="response-simple-accept" new-state="actualization"/>
+          <change stimulus-ref="response-simple-reject" new-state="post-actualization"/>
+          <change stimulus-ref="abandon" new-state="post-actualization"/>
+        </state>
+        <state id="actualization">
+          <change stimulus-ref="invoice" new-state="post-actualization"/>
+          <change stimulus-ref="abandon" new-state="post-actualization"/>
+        </state>
+        <state id="post-actualization"/>
+      </states>
+    </definition>
+  </machine>
+  <machine display-priority="90">
+    <name>Business Process Detail</name>
+    <definition id="process-detail">
+      <states>
+        <state>
+          <change stimulus-ref="request-catalogue" new-state="catalogue-requested"/>
+          <change stimulus-ref="request-quotation" new-state="quotation-requested"/>
+          <change stimulus-ref="quotation" new-state="quotation-received"/>
+          <change stimulus-ref="order" new-state="order-received"/>
+        </state>
+        <!--planning-->
+        <state id="catalogue-requested">
+          <change stimulus-ref="catalogue" new-state="catalogue-received"/>
+          <change stimulus-ref="abandon" new-state="abandoned"/>
+        </state>
+        <state id="catalogue-received">
+          <change stimulus-ref="request-quotation" new-state="quotation-requested"/>
+          <change stimulus-ref="abandon" new-state="abandoned"/>
+        </state>
+        <!--quotation-requested-->
+        <state id="quotation-requested">
+          <change stimulus-ref="quotation" new-state="quotation-received"/>
+          <change stimulus-ref="abandon" new-state="abandoned"/>
+        </state>
+        <state id="quotation-received"><!--buyer-->
+          <change stimulus-ref="order" new-state="order-received"/>
+          <change stimulus-ref="abandon" new-state="abandoned"/>
+        </state>
+        <!--quotation-received-->
+        <state id="order-received"><!--seller-->
+          <change stimulus-ref="response-simple-accept" new-state="order-accepted"/>
+          <change stimulus-ref="response-counter" new-state="counter-order-received"/>
+          <change stimulus-ref="response-simple-reject" new-state="abandoned"/>
+          <change stimulus-ref="abandon" new-state="abandoned"/>
+        </state>
+        <state id="counter-order-received">
+          <change stimulus-ref="order" new-state="order-received"/>
+          <change stimulus-ref="abandon" new-state="abandoned"/>
+        </state>
+        <!--actualization-->
+        <state id="order-accepted">
+          <change stimulus-ref="remittance-advice" new-state="paid"/>
+          <change stimulus-ref="abandon" new-state="abandoned"/>
+        </state>
+        <state id="paid">
+          <change stimulus-ref="despatch-advice" new-state="despatched"/>
+          <change stimulus-ref="abandon" new-state="abandoned"/>
+        </state>
+        <state id="despatched">
+          <change stimulus-ref="receipt-advice" new-state="goods-received"/>
+          <change stimulus-ref="abandon" new-state="abandoned"/>
+        </state>
+        <state id="goods-received">
+          <change stimulus-ref="invoice" new-state="completed"/>
+          <change stimulus-ref="abandon" new-state="abandoned"/>
+        </state>
+        <!--post-actualization-->
+        <state id="abandoned"/>
+        <state id="completed"/>
+      </states>
+    </definition>
+  </machine>
+
+<!--  
+  <machine>
+    <name>Economic Event</name>
+    <definition id="event">
+      <states initial="specified" stimulus-ref="specify">
+        <state id="specified">
+          <change stimulus-ref="service" new-state="in-service-event"/>
+        </state>
+        <state id="in-service-event">
+          <change stimulus-ref="pending-contract"
+                  new-state="pending-event"/>
+        </state>
+        <state id="pending-event">
+          <change stimulus-ref="complete-event"
+                  new-state="event-complete"/>
+        </state>
+        <state id="event-complete"/>
+      </states>
+    </definition>
+  </machine>
+  <machine>
+    <name>Business Process Phase</name>
+    <definition id="process-phase">
+      <states initial="phase-waiting" stimulus-ref="phase-start">
+        <state id="phase-waiting">
+          <change stimulus-ref="phase-service"
+                  new-state="in-service-phase"/>
+        </state>
+        <state id="in-service-phase">
+          <change stimulus-ref="complete-phase"
+                  new-state="phase-complete"/>
+        </state>
+        <state id="phase-complete"/>
+      </states>
+    </definition>
+  </machine>
+-->  
+</machines>
+</dbtr>

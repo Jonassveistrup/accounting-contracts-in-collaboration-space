@@ -1,0 +1,68 @@
+# The document model of a prototypical
+# Distributed Business Transaction Repository
+
+datatypes xsd = "http://www.w3.org/2001/XMLSchema-datatypes"
+
+start = ( dbtr | element history-dbtr { dbtr+ } )
+
+# a DBTR has a bunch of machines
+dbtr = element dbtr {
+  element name { text },
+  element machines { machine+ }
+ }
+
+# each machine has a name and definition, and may have instances 
+machine = element machine {
+  attribute display-priority { xsd:decimal }?,
+  element name { text },
+  definition,
+  element instances { instance+ }?
+ }
+
+# the state machine is defined with initialization propeties and a list of
+# states and the stimuli that change to a new state
+definition = element definition {
+  attribute id { xsd:NMTOKEN },
+  attribute reusable { "true" | "false" }?, # absent means "false"
+  element states {
+    element state {
+      attribute id { xsd:NMTOKEN }?, # when absent, the machine is not
+                                     # instantiated until one of the change
+                                     # stimuli are encountered
+      element change {
+        attribute stimulus-ref { xsd:NMTOKEN },
+        attribute new-state { xsd:NMTOKEN }
+       }*
+     }+
+   }
+ }
+
+# an instance of a state machine allows the state machine to be re-used
+instance = element instance {
+  ( # an anonymous instance responds to all stimuli, not targeted stimuli
+    attribute ref { xsd:NMTOKEN },        # for targeted stimuli
+    attribute prototype { xsd:NMTOKEN }?, # shared instantiation
+    attribute type { xsd:NMTOKEN }?       # specific instantiation
+  )?,
+  history?, # this is not for creation but FYI for history of status changes
+  element name { text }?, # absent for anonymous instance
+  element properties {
+    element property {
+      attribute new { empty }?,
+      element name { text },
+      element value { text }
+     }+
+   }?
+ }
+
+# this element is not engaged at authoring time but is noted here as doc
+history = element history {
+  element change {
+    attribute event { xsd:NMTOKEN },
+    attribute stimulus-ref { xsd:NMTOKEN },
+    attribute state { xsd:NMTOKEN },
+    attribute new { empty }?
+   }*
+ }
+
+# end

@@ -1,0 +1,1749 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scenario>
+  <name>The wholesale purchases of green and red bicycles</name>
+  <events>
+    <event xml:id="establish-Dai-currency">
+      <name>Establish the use of Dai as a resource type</name>
+      <stimuli>
+        <stimulus ref="identify-resource-type">
+          <name>Define Dai currency</name>
+          <instances>
+            <instance ref="Dai">
+              <name>Dai definition</name>
+              <properties>
+                <property>
+                  <name>resource-type</name>
+                  <value>cryptocurrency</value>
+                </property>
+                <property>
+                  <name>proper name</name>
+                  <value>Dai</value>
+                </property>
+                <property>
+                  <name>exchange USD</name>
+                  <value>1.0</value>
+                </property>
+              </properties>
+            </instance>
+          </instances>
+        </stimulus>
+      </stimuli>
+    </event>
+    
+    <event xml:id="establish-all-agent-types">
+      <name>Establish all the economic agent types</name>
+      <stimuli>
+        <stimulus ref="identify-agent-type">
+          <name>Define agent types</name>
+          <instances>
+            <instance ref="Seller">
+              <name>Seller role definition</name>
+              <properties>
+                <property>
+                  <name>role</name>
+                  <value>seller</value>
+                </property>
+              </properties>
+            </instance>
+            <instance ref="Buyer">
+              <name>Buyer role definition</name>
+              <properties>
+                <property>
+                  <name>role</name>
+                  <value>buyer</value>
+                </property>
+              </properties>
+            </instance>
+            <instance ref="TaxAuthority">
+              <name>Tax authority definition</name>
+              <properties>
+                <property>
+                  <name>role</name>
+                  <value>Tax Authority</value>
+                </property>
+              </properties>
+            </instance>
+          </instances>
+        </stimulus>
+      </stimuli>
+    </event>
+
+    <event xml:id="establish-agents">
+      <name>Establish all economic agents</name>
+      <stimuli>
+        <stimulus ref="identify-agent">
+          <name>Establish all of the agents</name>
+          <instances>
+            <instance ref="Party100">
+              <name>Establish the Bill's Bikes Manufacturing as a seller</name>
+              <properties>
+                <property>
+                  <name>type</name>
+                  <value>Seller</value>
+                </property>
+                <property>
+                  <name>name</name>
+                  <value>Bill's Bikes Manufacturing</value>
+                </property>
+                <property>
+                  <name>wallet</name>
+                  <value>0x4cFa..2eDE</value>
+                </property>
+                <property>
+                  <name>balance</name>
+                  <value>0</value>
+                </property>
+                <property>
+                  <name>currency</name>
+                  <value>Dai</value>
+                </property>
+              </properties>
+            </instance>
+            <instance ref="Party200">
+              <name>Establish Jonas's Bike Shop as buyer</name>
+              <properties>
+                <property>
+                  <name>type</name>
+                  <value>Buyer</value>
+                </property>
+                <property>
+                  <name>name</name>
+                  <value>Jonas's Bike Shop</value>
+                </property>
+                <property>
+                  <name>wallet</name>
+                  <value>0xdF86..f112</value>
+                </property>
+                <property>
+                  <name>balance</name>
+                  <value>100000</value>
+                </property>
+                <property>
+                  <name>currency</name>
+                  <value>Dai</value>
+                </property>
+              </properties>
+            </instance>
+            <instance ref="Party300">
+              <name>Establish Danish Tax Agency as tax authority</name>
+              <properties>
+                <property>
+                  <name>type</name>
+                  <value>TaxAuthority</value>
+                </property>
+                <property>
+                  <name>name</name>
+                  <value>Danish Tax Agency</value>
+                </property>
+                <property>
+                  <name>wallet=</name>
+                  <value>0xdA9f..23F4</value>
+                </property>
+                <property>
+                  <name>currency</name>
+                  <value>Dai</value>
+                </property>
+                <property>
+                  <name>balance</name>
+                  <value>0</value>
+                </property>
+              </properties>
+            </instance>
+          </instances>
+        </stimulus>
+      </stimuli>
+    </event>
+    
+    <event xml:id="establish-resource-types">
+      <name>Establish the sport bikes as resource types</name>
+      <stimuli>
+        <stimulus ref="identify-resource-type">
+          <name>Define green and red sport bike types</name>
+          <instances>
+            <instance ref="GreenSportBike">
+              <name>Green sport bike definition</name>
+              <properties>
+                <property>
+                  <name>price currency</name>
+                  <value>Dai</value>
+                </property>
+                <property>
+                  <name>suggested price</name>
+                  <value>1200</value>
+                </property>
+                <property>
+                  <name>suggested VAT/MOMS</name>
+                  <value>300</value>
+                </property>
+              </properties>
+            </instance>
+            <instance ref="RedSportBike">
+              <name>Red sport bike definition</name>
+              <properties>
+                <property>
+                  <name>price currency</name>
+                  <value>Dai</value>
+                </property>
+                <property>
+                  <name>suggested price</name>
+                  <value>800</value>
+                </property>
+                <property>
+                  <name>suggested VAT/MOMS</name>
+                  <value>200</value>
+                </property>
+              </properties>
+            </instance>
+          </instances>
+        </stimulus>
+      </stimuli>
+    </event>
+
+    <event xml:id="establish-inventory-green-sport-bikes">
+      <name>Establish inventory of all instances of green bikes</name>
+      <stimuli>
+        <stimulus ref="identify-available-resource">
+          <name>Establish the inventory of green sport bikes</name>
+          <instances>
+            <instance ref="PC001">
+              <name>Serial PC001</name>
+              <properties>
+                <property>
+                  <name>type</name>
+                  <value>GreenSportBike</value>
+                </property>
+                <property>
+                  <name>serial number</name>
+                  <value>PC001</value>
+                </property>
+                <property>
+                  <name>owner</name>
+                  <value>Party100</value>
+                </property>
+              </properties>
+            </instance>
+            <instance ref="PC002">
+              <name>Serial PC002</name>
+              <properties>
+                <property>
+                  <name>type</name>
+                  <value>GreenSportBike</value>
+                </property>
+                <property>
+                  <name>serial number</name>
+                  <value>PC002</value>
+                </property>
+                <property>
+                  <name>owner</name>
+                  <value>Party100</value>
+                </property>
+              </properties>
+            </instance>
+            <instance ref="PC003">
+              <name>Serial PC003</name>
+              <properties>
+                <property>
+                  <name>type</name>
+                  <value>GreenSportBike</value>
+                </property>
+                <property>
+                  <name>serial number</name>
+                  <value>PC003</value>
+                </property>
+                <property>
+                  <name>owner</name>
+                  <value>Party100</value>
+                </property>
+              </properties>
+            </instance>
+            <instance ref="PC004">
+              <name>Serial PC004</name>
+              <properties>
+                <property>
+                  <name>type</name>
+                  <value>GreenSportBike</value>
+                </property>
+                <property>
+                  <name>serial number</name>
+                  <value>PC004</value>
+                </property>
+                <property>
+                  <name>owner</name>
+                  <value>Party100</value>
+                </property>
+              </properties>
+            </instance>
+            <instance ref="PC005">
+              <name>Serial PC005</name>
+              <properties>
+                <property>
+                  <name>type</name>
+                  <value>GreenSportBike</value>
+                </property>
+                <property>
+                  <name>serial number</name>
+                  <value>PC005</value>
+                </property>
+                <property>
+                  <name>owner</name>
+                  <value>Party100</value>
+                </property>
+              </properties>
+            </instance>
+            <instance ref="PC006">
+              <name>Serial PC006</name>
+              <properties>
+                <property>
+                  <name>type</name>
+                  <value>GreenSportBike</value>
+                </property>
+                <property>
+                  <name>serial number</name>
+                  <value>PC006</value>
+                </property>
+                <property>
+                  <name>owner</name>
+                  <value>Party100</value>
+                </property>
+              </properties>
+            </instance>
+            <instance ref="PC007">
+              <name>Serial PC007</name>
+              <properties>
+                <property>
+                  <name>type</name>
+                  <value>GreenSportBike</value>
+                </property>
+                <property>
+                  <name>serial number</name>
+                  <value>PC007</value>
+                </property>
+                <property>
+                  <name>owner</name>
+                  <value>Party100</value>
+                </property>
+              </properties>
+            </instance>
+            <instance ref="PC008">
+              <name>Serial PC008</name>
+              <properties>
+                <property>
+                  <name>type</name>
+                  <value>GreenSportBike</value>
+                </property>
+                <property>
+                  <name>serial number</name>
+                  <value>PC008</value>
+                </property>
+                <property>
+                  <name>owner</name>
+                  <value>Party100</value>
+                </property>
+              </properties>
+            </instance>
+            <instance ref="PC009">
+              <name>Serial PC009</name>
+              <properties>
+                <property>
+                  <name>type</name>
+                  <value>GreenSportBike</value>
+                </property>
+                <property>
+                  <name>serial number</name>
+                  <value>PC009</value>
+                </property>
+                <property>
+                  <name>owner</name>
+                  <value>Party100</value>
+                </property>
+              </properties>
+            </instance>
+            <instance ref="PC010">
+              <name>Serial PC010</name>
+              <properties>
+                <property>
+                  <name>type</name>
+                  <value>GreenSportBike</value>
+                </property>
+                <property>
+                  <name>serial number</name>
+                  <value>PC010</value>
+                </property>
+                <property>
+                  <name>owner</name>
+                  <value>Party100</value>
+                </property>
+              </properties>
+            </instance>
+            <instance ref="PC011">
+              <name>Serial PC011</name>
+              <properties>
+                <property>
+                  <name>type</name>
+                  <value>GreenSportBike</value>
+                </property>
+                <property>
+                  <name>serial number</name>
+                  <value>PC011</value>
+                </property>
+                <property>
+                  <name>owner</name>
+                  <value>Party100</value>
+                </property>
+              </properties>
+            </instance>
+          </instances>
+        </stimulus>
+      </stimuli>
+    </event>
+
+    <event xml:id="establish-instances-red-sport-bikes">
+      <name>Establish inventory of all instances of red bikes</name>
+      <stimuli>
+        <stimulus ref="identify-available-resource">
+          <name>Establish the inventory of red sport bikes</name>
+          <instances>
+            <instance ref="PC100">
+              <name>Serial PC100</name>
+              <properties>
+                <property>
+                  <name>type</name>
+                  <value>RedSportBike</value>
+                </property>
+                <property>
+                  <name>serial number</name>
+                  <value>PC100</value>
+                </property>
+                <property>
+                  <name>owner</name>
+                  <value>Party100</value>
+                </property>
+              </properties>
+            </instance>
+            <instance ref="PC101">
+              <name>Serial PC101</name>
+              <properties>
+                <property>
+                  <name>type</name>
+                  <value>RedSportBike</value>
+                </property>
+                <property>
+                  <name>serial number</name>
+                  <value>PC101</value>
+                </property>
+                <property>
+                  <name>owner</name>
+                  <value>Party100</value>
+                </property>
+              </properties>
+            </instance>
+            <instance ref="PC102">
+              <name>Serial PC102</name>
+              <properties>
+                <property>
+                  <name>type</name>
+                  <value>RedSportBike</value>
+                </property>
+                <property>
+                  <name>serial number</name>
+                  <value>PC102</value>
+                </property>
+                <property>
+                  <name>owner</name>
+                  <value>Party100</value>
+                </property>
+              </properties>
+            </instance>
+            <instance ref="PC103">
+              <name>Serial PC103</name>
+              <properties>
+                <property>
+                  <name>type</name>
+                  <value>RedSportBike</value>
+                </property>
+                <property>
+                  <name>serial number</name>
+                  <value>PC103</value>
+                </property>
+                <property>
+                  <name>owner</name>
+                  <value>Party100</value>
+                </property>
+              </properties>
+            </instance>
+            <instance ref="PC104">
+              <name>Serial PC104</name>
+              <properties>
+                <property>
+                  <name>type</name>
+                  <value>RedSportBike</value>
+                </property>
+                <property>
+                  <name>serial number</name>
+                  <value>PC104</value>
+                </property>
+                <property>
+                  <name>owner</name>
+                  <value>Party100</value>
+                </property>
+              </properties>
+            </instance>
+          </instances>
+        </stimulus>
+      </stimuli>
+    </event>
+
+    <event xml:id="establish-event-types">
+      <name>Establish the delivery and payment types of event</name>
+      <stimuli>
+        <stimulus ref="identify-event-type">
+          <name>Define delivery and payment event types</name>
+          <instances>
+            <instance ref="Delivery">
+              <name>Delivery definition</name>
+              <properties>
+                <property>
+                  <name>delivery-type</name>
+                  <value>wholesale</value>
+                </property>
+              </properties>
+            </instance>
+            <instance ref="Payment">
+              <name>Payment definition</name>
+            </instance>
+          </instances>
+        </stimulus>
+      </stimuli>
+    </event>
+    
+    <!--=============== first transaction ==================================--> 
+
+    <event xml:id="request-a-catalogue1">
+      <name>Buyer: What inventory do you have?</name>
+      <document-type>Request For Catalogue</document-type>
+      <sender>buyer</sender>
+      <receiver>seller</receiver>
+      <stimuli>
+        <stimulus ref="request-catalogue">
+          <name>Request a catalogue</name>
+          <instances>
+            <instance ref="Process1">
+              <name>Process overview/detail 1</name>
+            </instance>
+          </instances>
+        </stimulus>
+      </stimuli>
+    </event>
+
+    <event xml:id="return-a-catalogue1">
+      <name>Seller: I have red and green bikes</name>
+      <document-type>Catalogue</document-type>
+      <sender>seller</sender>
+      <receiver>buyer</receiver>
+      <stimuli>
+        <stimulus ref="catalogue" target="Process1">
+          <name>Return a catalogue</name>
+        </stimulus>
+      </stimuli>
+    </event>
+
+    <event xml:id="propose-a-contract1">
+      <name>Buyer: Do you have the green bikes that I want?</name>
+      <document-type>Request For Quotation</document-type>
+      <sender>buyer</sender>
+      <receiver>seller</receiver>
+      <stimuli>
+        <stimulus ref="request-quotation" target="Process1">
+          <name>Establish business process descriptions</name>
+        </stimulus>
+        <stimulus ref="offer-contract">
+          <name>Initiate a contract</name>
+          <instances>
+            <instance ref="Contract1">
+              <name>Contract 1</name>
+              <properties>
+                <property>
+                  <name>contract date</name>
+                  <value>2020-06-01</value>
+                </property>
+                <property>
+                  <name>buyer party</name>
+                  <value>Party200</value>
+                </property>
+                <property>
+                  <name>seller party</name>
+                  <value>Party100</value>
+                </property>
+                <property>
+                  <name>planned delivery</name>
+                  <value>PlanDel1</value>
+                </property>
+                <property>
+                  <name>sale type</name>
+                  <value>wholesale</value>
+                </property>
+              </properties>
+            </instance>
+          </instances>
+        </stimulus>
+        <stimulus ref="propose-commitment">
+          <name>Commitments to contracts and deliveries</name>
+          <instances>
+            <instance ref="PlanDel1">
+              <name>Proposed delivery for contract 1</name>
+              <properties>
+                <property>
+                  <name>planned date</name>
+                  <value>2020-06-15</value>
+                </property>
+                <property>
+                  <name>receiver party</name>
+                  <value>Party200</value>
+                </property>
+                <property>
+                  <name>sender party</name>
+                  <value>Party100</value>
+                </property>
+                <property>
+                  <name>item</name>
+                  <value>GreenSportBike</value>
+                </property>
+                <property>
+                  <name>planned quantity</name>
+                  <value>10</value>
+                </property>
+              </properties>
+            </instance>
+          </instances>
+        </stimulus>
+      </stimuli>
+    </event>
+
+    <event xml:id="accept-a-quotation1">
+      <name>Seller: Yes, I have the bikes that you want</name>
+      <document-type>Quotation</document-type>
+      <sender>seller</sender>
+      <receiver>buyer</receiver>
+      <stimuli>
+        <stimulus ref="quotation" target="Process1">
+          <name>Track business process descriptions</name>
+        </stimulus>
+        <stimulus ref="accept-contract" target="Contract1">
+          <name>Accept a contract</name>
+          <instances>
+            <instance ref="Contract1">
+              <name>Contract 1 details</name>
+              <properties>
+                <property>
+                  <name>cost</name>
+                  <value>12000</value>
+                </property>
+                <property>
+                  <name>VAT/MOMS</name>
+                  <value>3000</value>
+                </property>
+                <property>
+                  <name>currency</name>
+                  <value>Dai</value>
+                </property>
+              </properties>
+            </instance>
+          </instances>
+        </stimulus>
+      </stimuli>
+    </event>
+
+    <event xml:id="make-an-order1">
+      <name>Buyer: Okay, here is an order for green bikes</name>
+      <document-type>Order</document-type>
+      <sender>buyer</sender>
+      <receiver>seller</receiver>
+      <stimuli>
+        <stimulus ref="order" target="Process1">
+          <name>Track business process descriptions</name>
+        </stimulus>
+        <stimulus ref="modify-contract">
+          <name>Accept a contract</name>
+          <instances>
+            <instance ref="Contract1">
+              <name>Contract 1 details</name>
+              <properties>
+                <property>
+                  <name>planned payment</name>
+                  <value>PlanPay1</value>
+                </property>
+              </properties>
+            </instance>
+          </instances>
+        </stimulus>
+        <stimulus ref="propose-commitment">
+          <name>Commitment to pay</name>
+          <instances>
+            <instance ref="PlanPay1">
+              <name>Planned Payment</name>
+              <properties>
+                <property>
+                  <name>contract</name>
+                  <value>Contract1</value>
+                </property>
+                <property>
+                  <name>planned date</name>
+                  <value>2020-06-10</value>
+                </property>
+                <property>
+                  <name>planned allocation</name>
+                  <value>Dai1</value>
+                </property>
+                <property>
+                  <name>planned receiver amount</name>
+                  <value>12000</value>
+                </property>
+                <property>
+                  <name>planned VAT/MOMS</name>
+                  <value>3000</value>
+                </property>
+              </properties>
+            </instance>
+          </instances>
+        </stimulus>
+        <stimulus ref="identify-available-resource">
+          <name>Payment to be made</name>
+          <instances>
+            <instance ref="Dai1">
+              <name>Dai resource 1</name>
+              <properties>
+                <property>
+                  <name>type</name>
+                  <value>Dai</value>
+                </property>
+                <property>
+                  <name>amount</name>
+                  <value>15000</value>
+                </property>
+                <property>
+                  <name>from</name>
+                  <value>Party200</value>
+                </property>
+              </properties>
+            </instance>
+          </instances>
+        </stimulus>
+      </stimuli>
+    </event>
+
+    <event xml:id="accept-the-order1">
+      <name>Seller: Deal! The order is acceptable</name>
+      <document-type>Order Response Simple</document-type>
+      <sender>seller</sender>
+      <receiver>buyer</receiver>
+      <stimuli>
+        <stimulus ref="response-simple-accept"
+                  target="Process1">
+          <name>Track business process descriptions</name>
+        </stimulus>
+        <stimulus ref="reserve"
+                  target="PC001 PC002 PC003 PC004 PC005
+                          PC006 PC007 PC008 PC009 PC010">
+          <name>Add actual price</name>
+          <instances>
+            <instance ref="PC001">
+              <name>Add price</name>
+              <properties>
+                <property>
+                  <name>actual price</name>
+                  <value>1200</value>
+                </property>
+                <property>
+                  <name>actual VAT/MOMS</name>
+                  <value>300</value>
+                </property>
+              </properties>
+            </instance>
+            <instance ref="PC002">
+              <name>Add price</name>
+              <properties>
+                <property>
+                  <name>actual price</name>
+                  <value>1200</value>
+                </property>
+                <property>
+                  <name>actual VAT/MOMS</name>
+                  <value>300</value>
+                </property>
+              </properties>
+            </instance>
+            <instance ref="PC003">
+              <name>Add price</name>
+              <properties>
+                <property>
+                  <name>actual price</name>
+                  <value>1200</value>
+                </property>
+                <property>
+                  <name>actual VAT/MOMS</name>
+                  <value>300</value>
+                </property>
+              </properties>
+            </instance>
+            <instance ref="PC004">
+              <name>Add price</name>
+              <properties>
+                <property>
+                  <name>actual price</name>
+                  <value>1200</value>
+                </property>
+                <property>
+                  <name>actual VAT/MOMS</name>
+                  <value>300</value>
+                </property>
+              </properties>
+            </instance>
+            <instance ref="PC005">
+              <name>Add price</name>
+              <properties>
+                <property>
+                  <name>actual price</name>
+                  <value>1200</value>
+                </property>
+                <property>
+                  <name>actual VAT/MOMS</name>
+                  <value>300</value>
+                </property>
+              </properties>
+            </instance>
+            <instance ref="PC006">
+              <name>Add price</name>
+              <properties>
+                <property>
+                  <name>actual price</name>
+                  <value>1200</value>
+                </property>
+                <property>
+                  <name>actual VAT/MOMS</name>
+                  <value>300</value>
+                </property>
+              </properties>
+            </instance>
+            <instance ref="PC007">
+              <name>Add price</name>
+              <properties>
+                <property>
+                  <name>actual price</name>
+                  <value>1200</value>
+                </property>
+                <property>
+                  <name>actual VAT/MOMS</name>
+                  <value>300</value>
+                </property>
+              </properties>
+            </instance>
+            <instance ref="PC008">
+              <name>Add price</name>
+              <properties>
+                <property>
+                  <name>actual price</name>
+                  <value>1200</value>
+                </property>
+                <property>
+                  <name>actual VAT/MOMS</name>
+                  <value>300</value>
+                </property>
+              </properties>
+            </instance>
+            <instance ref="PC009">
+              <name>Add price</name>
+              <properties>
+                <property>
+                  <name>actual price</name>
+                  <value>1200</value>
+                </property>
+                <property>
+                  <name>actual VAT/MOMS</name>
+                  <value>300</value>
+                </property>
+              </properties>
+            </instance>
+            <instance ref="PC010">
+              <name>Add price</name>
+              <properties>
+                <property>
+                  <name>actual price</name>
+                  <value>1200</value>
+                </property>
+                <property>
+                  <name>actual VAT/MOMS</name>
+                  <value>300</value>
+                </property>
+              </properties>
+            </instance>
+          </instances>
+        </stimulus>
+        <stimulus ref="accept-commitment">
+          <name>Pay for an order</name>
+        </stimulus>
+      </stimuli>
+    </event>
+
+    <event xml:id="pay-for-the-order1">
+      <name>Buyer: Okay, here is the payment</name>
+      <document-type>Remittance Advice</document-type>
+      <sender>buyer</sender>
+      <receiver>seller</receiver>
+      <stimuli>
+        <stimulus ref="remittance-advice"
+                  target="Process1">
+          <name>Track business process descriptions</name>
+        </stimulus>
+        <stimulus ref="initiate-event">
+          <name>Payment</name>
+          <instances>
+            <instance ref="Pay1">
+              <name>Payment</name>
+              <properties>
+                <property>
+                  <name>event type</name>
+                  <value>Payment</value>
+                </property>
+                <property>
+                  <name>contract</name>
+                  <value>Contract1</value>
+                </property>
+                <property>
+                  <name>payment date</name>
+                  <value>2020-06-10</value>
+                </property>
+                <property>
+                  <name>allocation</name>
+                  <value>Dai1</value>
+                </property>
+                <property>
+                  <name>receiver amount</name>
+                  <value>12000</value>
+                </property>
+                <property>
+                  <name>VAT/MOMS</name>
+                  <value>3000</value>
+                </property>
+                <property>
+                  <name>planned payment</name>
+                  <value>PlanPay1</value>
+                </property>
+              </properties>
+            </instance>
+          </instances>
+        </stimulus>
+        <stimulus ref="reserve" target="Dai1">
+          <name>Payment to be made</name>
+          <instances>
+            <instance ref="Dai1">
+              <name>Dai resource 1</name>
+            </instance>
+          </instances>
+        </stimulus>
+        <stimulus ref="modify-contract" target="Contract1">
+          <name>Payment added to contract wallet</name>
+          <instances>
+            <instance ref="Contract1">
+              <name>Contract 1</name>
+              <properties>
+                <property>
+                  <name>wallet balance</name>
+                  <value>15000</value>
+                </property>
+                <property>
+                  <name>wallet currency</name>
+                  <value>Dai</value>
+                </property>
+              </properties>
+            </instance>
+          </instances>
+        </stimulus>
+        <stimulus ref="modify-agent" target="Party200">
+          <name>Payment removed from buyer's wallet</name>
+          <instances>
+            <instance ref="Party200">
+              <name>Jonas's Bike Shop</name>
+              <properties>
+                <property>
+                  <name>balance</name>
+                  <value>85000</value>
+                </property>
+              </properties>
+            </instance>
+          </instances>
+        </stimulus>
+      </stimuli>
+    </event>
+
+    <event xml:id="despatch-of-goods1">
+      <name>Seller: Thank you, I have despatched 10 green bikes</name>
+      <document-type>Despatch Advice</document-type>
+      <sender>seller</sender>
+      <receiver>buyer</receiver>
+      <stimuli>
+        <stimulus ref="despatch-advice"
+                  target="Process1">
+          <name>Track business process descriptions</name>
+        </stimulus>
+        <stimulus ref="initiate-event">
+          <name>Delivery</name>
+          <instances>
+            <instance ref="Del1">
+              <name>Delivery of green bikes</name>
+              <properties>
+                <property>
+                  <name>event type</name>
+                  <value>Delivery</value>
+                </property>
+                <property>
+                  <name>actual date</name>
+                  <value>2020-06-10</value>
+                </property>
+                <property>
+                  <name>receiver party</name>
+                  <value>Party200</value>
+                </property>
+                <property>
+                  <name>sender party</name>
+                  <value>Party100</value>
+                </property>
+                <property>
+                  <name>item</name>
+                  <value>GreenSportBike</value>
+                </property>
+                <property>
+                  <name>actual quantity</name>
+                  <value>10</value>
+                </property>
+                <property>
+                  <name>planned delivery</name>
+                  <value>PlanDel1</value>
+                </property>
+              </properties>
+            </instance>
+          </instances>
+        </stimulus>
+      </stimuli>
+    </event>
+
+    <event xml:id="receipt-of-goods1">
+      <name>Buyer: Thank you, I have received 10 green bikes</name>
+      <document-type>Receipt Advice</document-type>
+      <sender>buyer</sender>
+      <receiver>seller</receiver>
+      <stimuli>
+        <stimulus ref="receipt-advice"
+                  target="Process1">
+          <name>Track business process descriptions</name>
+        </stimulus>
+        <stimulus ref="exchange"
+                  target="PC001 PC002 PC003 PC004 PC005
+                          PC006 PC007 PC008 PC009 PC010">
+          <name>Accept an order</name>
+          <instances>
+            <instance ref="PC001">
+              <name>Resource</name>
+              <properties>
+                <property>
+                  <name>owner</name>
+                  <value>Party200</value>
+                </property>
+                <property>
+                  <name>actual price</name>
+                  <value>1200</value>
+                </property>
+                <property>
+                  <name>actual VAT/MOMS</name>
+                  <value>300</value>
+                </property>
+                <property>
+                  <name>stockflow</name>
+                  <value>Del1</value>
+                </property>
+              </properties>
+            </instance>
+            <instance ref="PC002">
+              <name>Resource</name>
+              <properties>
+                <property>
+                  <name>owner</name>
+                  <value>Party200</value>
+                </property>
+                <property>
+                  <name>actual price</name>
+                  <value>1200</value>
+                </property>
+                <property>
+                  <name>actual VAT/MOMS</name>
+                  <value>300</value>
+                </property>
+                <property>
+                  <name>stockflow</name>
+                  <value>Del1</value>
+                </property>
+              </properties>
+            </instance>
+            <instance ref="PC003">
+              <name>Resource</name>
+              <properties>
+                <property>
+                  <name>owner</name>
+                  <value>Party200</value>
+                </property>
+                <property>
+                  <name>actual price</name>
+                  <value>1200</value>
+                </property>
+                <property>
+                  <name>actual VAT/MOMS</name>
+                  <value>300</value>
+                </property>
+                <property>
+                  <name>stockflow</name>
+                  <value>Del1</value>
+                </property>
+              </properties>
+            </instance>
+            <instance ref="PC004">
+              <name>Resource</name>
+              <properties>
+                <property>
+                  <name>owner</name>
+                  <value>Party200</value>
+                </property>
+                <property>
+                  <name>actual price</name>
+                  <value>1200</value>
+                </property>
+                <property>
+                  <name>actual VAT/MOMS</name>
+                  <value>300</value>
+                </property>
+                <property>
+                  <name>stockflow</name>
+                  <value>Del1</value>
+                </property>
+              </properties>
+            </instance>
+            <instance ref="PC005">
+              <name>Resource</name>
+              <properties>
+                <property>
+                  <name>owner</name>
+                  <value>Party200</value>
+                </property>
+                <property>
+                  <name>actual price</name>
+                  <value>1200</value>
+                </property>
+                <property>
+                  <name>actual VAT/MOMS</name>
+                  <value>300</value>
+                </property>
+                <property>
+                  <name>stockflow</name>
+                  <value>Del1</value>
+                </property>
+              </properties>
+            </instance>
+            <instance ref="PC006">
+              <name>Resource</name>
+              <properties>
+                <property>
+                  <name>owner</name>
+                  <value>Party200</value>
+                </property>
+                <property>
+                  <name>actual price</name>
+                  <value>1200</value>
+                </property>
+                <property>
+                  <name>actual VAT/MOMS</name>
+                  <value>300</value>
+                </property>
+                <property>
+                  <name>stockflow</name>
+                  <value>Del1</value>
+                </property>
+              </properties>
+            </instance>
+            <instance ref="PC007">
+              <name>Resource</name>
+              <properties>
+                <property>
+                  <name>actual price</name>
+                  <value>1200</value>
+                </property>
+                <property>
+                  <name>actual VAT/MOMS</name>
+                  <value>300</value>
+                </property>
+                <property>
+                  <name>owner</name>
+                  <value>Party200</value>
+                </property>
+                <property>
+                  <name>stockflow</name>
+                  <value>Del1</value>
+                </property>
+              </properties>
+            </instance>
+            <instance ref="PC008">
+              <name>Resource</name>
+              <properties>
+                <property>
+                  <name>owner</name>
+                  <value>Party200</value>
+                </property>
+                <property>
+                  <name>actual price</name>
+                  <value>1200</value>
+                </property>
+                <property>
+                  <name>actual VAT/MOMS</name>
+                  <value>300</value>
+                </property>
+                <property>
+                  <name>stockflow</name>
+                  <value>Del1</value>
+                </property>
+              </properties>
+            </instance>
+            <instance ref="PC009">
+              <name>Resource</name>
+              <properties>
+                <property>
+                  <name>owner</name>
+                  <value>Party200</value>
+                </property>
+                <property>
+                  <name>actual price</name>
+                  <value>1200</value>
+                </property>
+                <property>
+                  <name>actual VAT/MOMS</name>
+                  <value>300</value>
+                </property>
+                <property>
+                  <name>stockflow</name>
+                  <value>Del1</value>
+                </property>
+              </properties>
+            </instance>
+            <instance ref="PC010">
+              <name>Resource</name>
+              <properties>
+                <property>
+                  <name>owner</name>
+                  <value>Party200</value>
+                </property>
+                <property>
+                  <name>actual price</name>
+                  <value>1200</value>
+                </property>
+                <property>
+                  <name>actual VAT/MOMS</name>
+                  <value>300</value>
+                </property>
+                <property>
+                  <name>stockflow</name>
+                  <value>Del1</value>
+                </property>
+              </properties>
+            </instance>
+          </instances>
+        </stimulus>
+        <stimulus ref="complete-commitment" target="PlanDel1">
+          <name>Delivery completed</name>
+        </stimulus>
+        <stimulus ref="complete-event" target="Del1">
+          <name>Delivery completed</name>
+        </stimulus>
+      </stimuli>
+    </event>
+
+    <event xml:id="sending-of-invoice1">
+      <name>Seller: We're square, here is your invoice</name>
+      <document-type>Invoice</document-type>
+      <sender>seller</sender>
+      <receiver>buyer</receiver>
+      <stimuli>
+        <stimulus ref="invoice" target="Process1">
+          <name>Track business process descriptions</name>
+        </stimulus>
+        <stimulus ref="exchange" target="Dai1">
+          <name>Transfer the funds</name>
+          <instances>
+            <instance ref="Dai1">
+              <name>Value leaving smart contract</name>
+              <properties>
+                <property>
+                  <name>to1-party</name>
+                  <value>Party100</value>
+                </property>
+                <property>
+                  <name>to1-amount</name>
+                  <value>12000</value>
+                </property>
+                <property>
+                  <name>to2-party</name>
+                  <value>Party300</value>
+                </property>
+                <property>
+                  <name>to2-amount</name>
+                  <value>3000</value>
+                </property>
+              </properties>
+            </instance>
+          </instances>
+        </stimulus>
+        <stimulus ref="modify-agent" target="Party100 Party300">
+          <name>Payment added to other wallets</name>
+          <instances>
+            <instance ref="Party100">
+              <name>Bill's Bike Manufacturing</name>
+              <properties>
+                <property>
+                  <name>balance</name>
+                  <value>12000</value>
+                </property>
+              </properties>
+            </instance>
+            <instance ref="Party300">
+              <name>Danish Tax Agency</name>
+              <properties>
+                <property>
+                  <name>balance</name>
+                  <value>3000</value>
+                </property>
+              </properties>
+            </instance>
+          </instances>
+        </stimulus>
+        <stimulus ref="complete-event" target="Pay1">
+          <name>Payment completed</name>
+        </stimulus>
+        <stimulus ref="complete-commitment" target="PlanPay1 PlanDel1">
+          <name>Payment and delivery made</name>
+        </stimulus>
+        <stimulus ref="complete-contract" target="Contract1">
+          <name>Contract completed</name>
+          <instances>
+            <instance ref="Contract1">
+              <name>Contract 1 details</name>
+              <properties>
+                <property>
+                  <name>actual payment</name>
+                  <value>Pay1</value>
+                </property>
+                <property>
+                  <name>actual delivery</name>
+                  <value>Del1</value>
+                </property>
+                <property>
+                  <name>wallet balance</name>
+                  <value>0</value>
+                </property>
+              </properties>
+            </instance>
+          </instances>
+        </stimulus>
+      </stimuli>
+    </event>
+
+
+    <!--=============== second transaction =================================--> 
+
+    <event xml:id="propose-a-contract2">
+      <name>Buyer: Do you have the red bikes that I want?</name>
+      <document-type>Request For Quotation</document-type>
+      <sender>buyer</sender>
+      <receiver>seller</receiver>
+      <stimuli>
+        <stimulus ref="request-quotation">
+          <name>Establish business process descriptions</name>
+          <instances>
+            <instance ref="Process2">
+              <name>Process overview/detail 2</name>
+            </instance>
+          </instances>
+        </stimulus>
+        <stimulus ref="offer-contract">
+          <name>Initiate a contract</name>
+          <instances>
+            <instance ref="Contract2">
+              <name>Contract 2</name>
+              <properties>
+                <property>
+                  <name>buyer party</name>
+                  <value>Party200</value>
+                </property>
+                <property>
+                  <name>seller party</name>
+                  <value>Party100</value>
+                </property>
+                <property>
+                  <name>contract date</name>
+                  <value>2020-07-01</value>
+                </property>
+                <property>
+                  <name>planned delivery</name>
+                  <value>PlanDel2</value>
+                </property>
+                <property>
+                  <name>sale type</name>
+                  <value>wholesale</value>
+                </property>
+              </properties>
+            </instance>
+          </instances>
+        </stimulus>
+        <stimulus ref="propose-commitment">
+          <name>Commitments to contracts and deliveries</name>
+          <instances>
+            <instance ref="PlanDel2">
+              <name>Proposed delivery for contract 2</name>
+              <properties>
+                <property>
+                  <name>planned date</name>
+                  <value>2020-07-15</value>
+                </property>
+                <property>
+                  <name>receiver party</name>
+                  <value>Party200</value>
+                </property>
+                <property>
+                  <name>sender party</name>
+                  <value>Party100</value>
+                </property>
+                <property>
+                  <name>planned quantity</name>
+                  <value>10</value>
+                </property>
+                <property>
+                  <name>item</name>
+                  <value>RedSportBike</value>
+                </property>
+              </properties>
+            </instance>
+          </instances>
+        </stimulus>
+        <stimulus ref="identify-available-resource">
+          <name>Payment to be made</name>
+          <instances>
+            <instance ref="Dai2">
+              <name>Dai resource 2</name>
+              <properties>
+                <property>
+                  <name>type</name>
+                  <value>Dai</value>
+                </property>
+                <property>
+                  <name>amount</name>
+                  <value>10000</value>
+                </property>
+                <property>
+                  <name>from</name>
+                  <value>Party200</value>
+                </property>
+              </properties>
+            </instance>
+          </instances>
+        </stimulus>
+      </stimuli>
+    </event>
+
+    <event xml:id="accept-a-quotation2">
+      <name>Seller: Well, I have some of the bikes that you want but not all</name>
+      <document-type>Quotation</document-type>
+      <sender>seller</sender>
+      <receiver>buyer</receiver>
+      <stimuli>
+        <stimulus ref="quotation" target="Process2">
+          <name>Track business process descriptions</name>
+        </stimulus>
+        <stimulus ref="accept-contract" target="Contract2">
+          <name>Accept a contract</name>
+          <instances>
+            <instance ref="Contract2">
+              <name>Contract 2 details</name>
+              <properties>
+                <property>
+                  <name>cost</name>
+                  <value>4000</value>
+                </property>
+                <property>
+                  <name>VAT/MOMS</name>
+                  <value>1000</value>
+                </property>
+              </properties>
+            </instance>
+          </instances>
+        </stimulus>
+        <stimulus ref="modify-commitment">
+          <name>Commitments to contracts and deliveries</name>
+          <instances>
+            <instance ref="PlanDel2">
+              <name>Proposed delivery for contract 1</name>
+              <properties>
+                <property>
+                  <name>planned quantity</name>
+                  <value>5</value>
+                </property>
+              </properties>
+            </instance>
+          </instances>
+        </stimulus>
+      </stimuli>
+    </event>
+
+    <event xml:id="make-an-order2">
+      <name>Buyer: Okay, here is an order (contract) for red bikes</name>
+      <document-type>Order</document-type>
+      <sender>buyer</sender>
+      <receiver>seller</receiver>
+      <stimuli>
+        <stimulus ref="order" target="Process2">
+          <name>Track business process descriptions</name>
+        </stimulus>
+        <stimulus ref="modify-contract">
+          <name>Accept a contract</name>
+          <instances>
+            <instance ref="Contract2">
+              <name>Contract 2 details</name>
+              <properties>
+                <property>
+                  <name>planned payment</name>
+                  <value>PlanPay2</value>
+                </property>
+              </properties>
+            </instance>
+          </instances>
+        </stimulus>
+        <stimulus ref="propose-commitment">
+          <name>Commitment to pay</name>
+          <instances>
+            <instance ref="PlanPay2">
+              <name>Planned Payment</name>
+              <properties>
+                <property>
+                  <name>contract</name>
+                  <value>Contract2</value>
+                </property>
+                <property>
+                  <name>planned date</name>
+                  <value>2020-07-10</value>
+                </property>
+                <property>
+                  <name>planned allocation</name>
+                  <value>Dai2</value>
+                </property>
+                <property>
+                  <name>planned receiver amount</name>
+                  <value>4000</value>
+                </property>
+                <property>
+                  <name>planned VAT/MOMS</name>
+                  <value>1000</value>
+                </property>
+              </properties>
+            </instance>
+          </instances>
+        </stimulus>
+        <stimulus ref="modify-available-resource" target="Dai2">
+          <name>Change payment to be made</name>
+          <instances>
+            <instance ref="Dai2">
+              <name>Dai resource 2</name>
+              <properties>
+                <property>
+                  <name>amount</name>
+                  <value>5000</value>
+                </property>
+              </properties>
+            </instance>
+          </instances>
+        </stimulus>
+      </stimuli>
+    </event>
+
+    <event xml:id="accept-the-order2">
+      <name>Seller: Deal! The order is acceptable</name>
+      <document-type>Order Response Simple</document-type>
+      <sender>seller</sender>
+      <receiver>buyer</receiver>
+      <stimuli>
+        <stimulus ref="response-simple-accept"
+                  target="Process2">
+          <name>Track business process descriptions</name>
+        </stimulus>
+        <stimulus ref="reserve"
+                  target="PC100 PC101 PC102 PC103 PC104">
+          <name>Add actual price</name>
+          <instances>
+            <instance ref="PC100">
+              <name>Add price</name>
+              <properties>
+                <property>
+                  <name>actual price</name>
+                  <value>4000</value>
+                </property>
+                <property>
+                  <name>actual VAT/MOMS</name>
+                  <value>1000</value>
+                </property>
+              </properties>
+            </instance>
+            <instance ref="PC101">
+              <name>Add price</name>
+              <properties>
+                <property>
+                  <name>actual price</name>
+                  <value>4000</value>
+                </property>
+                <property>
+                  <name>actual VAT/MOMS</name>
+                  <value>1000</value>
+                </property>
+              </properties>
+            </instance>
+            <instance ref="PC102">
+              <name>Add price</name>
+              <properties>
+                <property>
+                  <name>actual price</name>
+                  <value>4000</value>
+                </property>
+                <property>
+                  <name>actual VAT/MOMS</name>
+                  <value>1000</value>
+                </property>
+              </properties>
+            </instance>
+            <instance ref="PC103">
+              <name>Add price</name>
+              <properties>
+                <property>
+                  <name>actual price</name>
+                  <value>4000</value>
+                </property>
+                <property>
+                  <name>actual VAT/MOMS</name>
+                  <value>1000</value>
+                </property>
+              </properties>
+            </instance>
+            <instance ref="PC104">
+              <name>Add price</name>
+              <properties>
+                <property>
+                  <name>actual price</name>
+                  <value>4000</value>
+                </property>
+                <property>
+                  <name>actual VAT/MOMS</name>
+                  <value>1000</value>
+                </property>
+              </properties>
+            </instance>
+          </instances>
+        </stimulus>
+        <stimulus ref="accept-commitment">
+          <name>Pay for an order</name>
+        </stimulus>
+      </stimuli>
+    </event>
+
+    <event xml:id="pay-for-the-order2">
+      <name>Buyer: Okay, here is the payment</name>
+      <document-type>Remittance Advice</document-type>
+      <sender>buyer</sender>
+      <receiver>seller</receiver>
+      <stimuli>
+        <stimulus ref="remittance-advice"
+                  target="Process2">
+          <name>Track business process descriptions</name>
+        </stimulus>
+        <stimulus ref="initiate-event">
+          <name>Payment</name>
+          <instances>
+            <instance ref="Pay2">
+              <name>Payment</name>
+              <properties>
+                <property>
+                  <name>contract</name>
+                  <value>Contract2</value>
+                </property>
+                <property>
+                  <name>payment date</name>
+                  <value>2020-07-10</value>
+                </property>
+                <property>
+                  <name>event type</name>
+                  <value>Payment</value>
+                </property>
+                <property>
+                  <name>allocation</name>
+                  <value>Dai2</value>
+                </property>
+                <property>
+                  <name>receiver amount</name>
+                  <value>4000</value>
+                </property>
+                <property>
+                  <name>VAT/MOMS</name>
+                  <value>1000</value>
+                </property>
+                <property>
+                  <name>planned payment</name>
+                  <value>PlanPay2</value>
+                </property>
+              </properties>
+            </instance>
+          </instances>
+        </stimulus>
+        <stimulus ref="reserve" target="Dai2">
+          <name>Payment to be made</name>
+          <instances>
+            <instance ref="Dai2">
+              <name>Dai resource 2</name>
+            </instance>
+          </instances>
+        </stimulus>
+        <stimulus ref="modify-contract" target="Contract2">
+          <name>Payment added to contract wallet</name>
+          <instances>
+            <instance ref="Contract2">
+              <name>Contract 2</name>
+              <properties>
+                <property>
+                  <name>wallet balance</name>
+                  <value>5000</value>
+                </property>
+                <property>
+                  <name>wallet currency</name>
+                  <value>Dai</value>
+                </property>
+              </properties>
+            </instance>
+          </instances>
+        </stimulus>
+        <stimulus ref="modify-agent" target="Party200">
+          <name>Payment removed from buyer's wallet</name>
+          <instances>
+            <instance ref="Party200">
+              <name>Jonas's Bike Shop</name>
+              <properties>
+                <property>
+                  <name>wallet balance</name>
+                  <value>80000</value>
+                </property>
+              </properties>
+            </instance>
+          </instances>
+        </stimulus>
+      </stimuli>
+    </event>
+
+  </events>
+</scenario>
