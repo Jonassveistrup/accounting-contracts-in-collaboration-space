@@ -1,0 +1,87 @@
+
+https://jsonformatter.curiousconcept.com/#
+
+--- Initial materialization ---
+{
+  deals: {
+    '0x2E2D...ad': {
+      productsreceivable: '0',
+      prepaidVatOut: '0',
+      expectedVat: '0',
+      expectedAmount: '0',
+      balance: '0'
+    },
+    '0x86BA...4f': {
+      productsreceivable: '0',
+      prepaidVatOut: '0',
+      expectedVat: '0',
+      expectedAmount: '0',
+      balance: '0'
+    }
+  },
+  sellerBalance: '0',
+  buyerBalance: '100000',
+  taxBalance: '0',
+  buyerItems: {},
+  sellerItems: { 'Green sports bike': 11, 'Red sports bike': 5 }
+}
+Deliv:  { 'Green sports bike': 10 }
+--- Intermediate materialization ---
+{
+  deals: {
+    '0x2E2D...ad': {
+      productsreceivable: 0,
+      prepaidVatOut: 0,
+      sellerVatIn: '3000',
+      buyerVatOut: '3000',
+      sales: '12000',
+      purchases: '12000',
+      deliveries: { 'Green sports bike': 10 },
+      expectedVat: '3000',
+      expectedAmount: '12000',
+      balance: '0'
+    },
+    '0x86BA...4f': {
+      productsreceivable: '0',
+      prepaidVatOut: '0',
+      expectedVat: '0',
+      expectedAmount: '0',
+      balance: '0'
+    }
+  },
+  sellerBalance: '12000',
+  buyerBalance: '85000',
+  taxBalance: '3000',
+  buyerItems: { 'Green sports bike': 10 },
+  sellerItems: { 'Green sports bike': 1, 'Red sports bike': 5 }
+}
+Deliv:  { 'Green sports bike': 10 }
+--- Final materialization ---
+{
+  deals: {
+    '0x2E2D1...ad': {
+      productsreceivable: 0,
+      prepaidVatOut: 0,
+      sellerVatIn: '3000',
+      buyerVatOut: '3000',
+      sales: '12000',
+      purchases: '12000',
+      deliveries: { 'Green sports bike': 10 },
+      expectedVat: '3000',
+      expectedAmount: '12000',
+      balance: '0'
+    },
+    '0x86BA...4f': {
+      productsreceivable: '4000',
+      prepaidVatOut: '1000',
+      expectedVat: '1000',
+      expectedAmount: '4000',
+      balance: '5000'
+    }
+  },
+  sellerBalance: '12000',
+  buyerBalance: '80000',
+  taxBalance: '3000',
+  buyerItems: { 'Green sports bike': 10 },
+  sellerItems: { 'Green sports bike': 1, 'Red sports bike': 5 }
+}
