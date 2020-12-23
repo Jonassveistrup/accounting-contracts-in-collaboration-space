@@ -12,7 +12,7 @@
               <name>Dai definition</name>
               <properties>
                 <property>
-                  <name>resource-type</name>
+                  <name>resource type</name>
                   <value>cryptocurrency</value>
                 </property>
                 <property>
@@ -499,7 +499,7 @@
         <stimulus ref="identify-event-type">
           <name>Define delivery and payment event types</name>
           <instances>
-            <instance ref="Delivery">
+            <instance ref="DeliveryType">
               <name>Delivery definition</name>
               <properties>
                 <property>
@@ -508,8 +508,14 @@
                 </property>
               </properties>
             </instance>
-            <instance ref="Payment">
+            <instance ref="PaymentType">
               <name>Payment definition</name>
+              <properties>
+                <property>
+                  <name>resource type</name>
+                  <value>dai</value>
+                </property>
+              </properties>
             </instance>
           </instances>
         </stimulus>
@@ -713,7 +719,7 @@
               <name>Dai resource 1</name>
               <properties>
                 <property>
-                  <name>type</name>
+                  <name>resource type</name>
                   <value>Dai</value>
                 </property>
                 <property>
@@ -902,7 +908,7 @@
               <properties>
                 <property>
                   <name>event type</name>
-                  <value>Payment</value>
+                  <value>PaymentType</value>
                 </property>
                 <property>
                   <name>contract</name>
@@ -913,7 +919,7 @@
                   <value>2020-06-10</value>
                 </property>
                 <property>
-                  <name>allocation</name>
+                  <name>allocation sf</name>
                   <value>Dai1</value>
                 </property>
                 <property>
@@ -993,7 +999,7 @@
               <properties>
                 <property>
                   <name>event type</name>
-                  <value>Delivery</value>
+                  <value>DeliveryType</value>
                 </property>
                 <property>
                   <name>actual date</name>
@@ -1057,7 +1063,7 @@
                   <value>300</value>
                 </property>
                 <property>
-                  <name>stockflow</name>
+                  <name>delivery</name>
                   <value>Del1</value>
                 </property>
               </properties>
@@ -1078,7 +1084,7 @@
                   <value>300</value>
                 </property>
                 <property>
-                  <name>stockflow</name>
+                  <name>delivery</name>
                   <value>Del1</value>
                 </property>
               </properties>
@@ -1099,7 +1105,7 @@
                   <value>300</value>
                 </property>
                 <property>
-                  <name>stockflow</name>
+                  <name>delivery</name>
                   <value>Del1</value>
                 </property>
               </properties>
@@ -1120,7 +1126,7 @@
                   <value>300</value>
                 </property>
                 <property>
-                  <name>stockflow</name>
+                  <name>delivery</name>
                   <value>Del1</value>
                 </property>
               </properties>
@@ -1141,7 +1147,7 @@
                   <value>300</value>
                 </property>
                 <property>
-                  <name>stockflow</name>
+                  <name>delivery</name>
                   <value>Del1</value>
                 </property>
               </properties>
@@ -1162,7 +1168,7 @@
                   <value>300</value>
                 </property>
                 <property>
-                  <name>stockflow</name>
+                  <name>delivery</name>
                   <value>Del1</value>
                 </property>
               </properties>
@@ -1183,7 +1189,7 @@
                   <value>Party200</value>
                 </property>
                 <property>
-                  <name>stockflow</name>
+                  <name>delivery</name>
                   <value>Del1</value>
                 </property>
               </properties>
@@ -1204,7 +1210,7 @@
                   <value>300</value>
                 </property>
                 <property>
-                  <name>stockflow</name>
+                  <name>delivery</name>
                   <value>Del1</value>
                 </property>
               </properties>
@@ -1225,7 +1231,7 @@
                   <value>300</value>
                 </property>
                 <property>
-                  <name>stockflow</name>
+                  <name>delivery</name>
                   <value>Del1</value>
                 </property>
               </properties>
@@ -1246,7 +1252,7 @@
                   <value>300</value>
                 </property>
                 <property>
-                  <name>stockflow</name>
+                  <name>delivery</name>
                   <value>Del1</value>
                 </property>
               </properties>
@@ -1435,7 +1441,7 @@
               <name>Dai resource 2</name>
               <properties>
                 <property>
-                  <name>type</name>
+                  <name>resource type</name>
                   <value>Dai</value>
                 </property>
                 <property>
@@ -1680,10 +1686,10 @@
                 </property>
                 <property>
                   <name>event type</name>
-                  <value>Payment</value>
+                  <value>PaymentType</value>
                 </property>
                 <property>
-                  <name>allocation</name>
+                  <name>allocation sf</name>
                   <value>Dai2</value>
                 </property>
                 <property>
