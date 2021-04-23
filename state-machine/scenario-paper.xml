@@ -90,7 +90,7 @@
                   <value>0x4cFa..2eDE</value>
                 </property>
                 <property>
-                  <name>balance</name>
+                  <name>wallet balance</name>
                   <value>0</value>
                 </property>
                 <property>
@@ -115,7 +115,7 @@
                   <value>0xdF86..f112</value>
                 </property>
                 <property>
-                  <name>balance</name>
+                  <name>wallet balance</name>
                   <value>100000</value>
                 </property>
                 <property>
@@ -136,7 +136,7 @@
                   <value>Danish Tax Agency</value>
                 </property>
                 <property>
-                  <name>wallet=</name>
+                  <name>wallet</name>
                   <value>0xdA9f..23F4</value>
                 </property>
                 <property>
@@ -144,7 +144,7 @@
                   <value>Dai</value>
                 </property>
                 <property>
-                  <name>balance</name>
+                  <name>wallet balance</name>
                   <value>0</value>
                 </property>
               </properties>
@@ -526,7 +526,7 @@
 
     <event xml:id="request-a-catalogue1">
       <name>Buyer: What inventory do you have?</name>
-      <document-type>Request For Catalogue</document-type>
+      <document-type>Catalogue Request</document-type>
       <sender>buyer</sender>
       <receiver>seller</receiver>
       <stimuli>
@@ -971,7 +971,7 @@
               <name>Jonas's Bike Shop</name>
               <properties>
                 <property>
-                  <name>balance</name>
+                  <name>wallet balance</name>
                   <value>85000</value>
                 </property>
               </properties>
@@ -1063,7 +1063,7 @@
                   <value>300</value>
                 </property>
                 <property>
-                  <name>delivery</name>
+                  <name>delivery sf</name>
                   <value>Del1</value>
                 </property>
               </properties>
@@ -1084,7 +1084,7 @@
                   <value>300</value>
                 </property>
                 <property>
-                  <name>delivery</name>
+                  <name>delivery sf</name>
                   <value>Del1</value>
                 </property>
               </properties>
@@ -1105,7 +1105,7 @@
                   <value>300</value>
                 </property>
                 <property>
-                  <name>delivery</name>
+                  <name>delivery sf</name>
                   <value>Del1</value>
                 </property>
               </properties>
@@ -1126,7 +1126,7 @@
                   <value>300</value>
                 </property>
                 <property>
-                  <name>delivery</name>
+                  <name>delivery sf</name>
                   <value>Del1</value>
                 </property>
               </properties>
@@ -1147,7 +1147,7 @@
                   <value>300</value>
                 </property>
                 <property>
-                  <name>delivery</name>
+                  <name>delivery sf</name>
                   <value>Del1</value>
                 </property>
               </properties>
@@ -1168,7 +1168,7 @@
                   <value>300</value>
                 </property>
                 <property>
-                  <name>delivery</name>
+                  <name>delivery sf</name>
                   <value>Del1</value>
                 </property>
               </properties>
@@ -1189,7 +1189,7 @@
                   <value>Party200</value>
                 </property>
                 <property>
-                  <name>delivery</name>
+                  <name>delivery sf</name>
                   <value>Del1</value>
                 </property>
               </properties>
@@ -1210,7 +1210,7 @@
                   <value>300</value>
                 </property>
                 <property>
-                  <name>delivery</name>
+                  <name>delivery sf</name>
                   <value>Del1</value>
                 </property>
               </properties>
@@ -1231,7 +1231,7 @@
                   <value>300</value>
                 </property>
                 <property>
-                  <name>delivery</name>
+                  <name>delivery sf</name>
                   <value>Del1</value>
                 </property>
               </properties>
@@ -1252,7 +1252,7 @@
                   <value>300</value>
                 </property>
                 <property>
-                  <name>delivery</name>
+                  <name>delivery sf</name>
                   <value>Del1</value>
                 </property>
               </properties>
@@ -1310,7 +1310,7 @@
               <name>Bill's Bike Manufacturing</name>
               <properties>
                 <property>
-                  <name>balance</name>
+                  <name>wallet balance</name>
                   <value>12000</value>
                 </property>
               </properties>
@@ -1319,7 +1319,7 @@
               <name>Danish Tax Agency</name>
               <properties>
                 <property>
-                  <name>balance</name>
+                  <name>wallet balance</name>
                   <value>3000</value>
                 </property>
               </properties>
@@ -1434,28 +1434,6 @@
             </instance>
           </instances>
         </stimulus>
-        <stimulus ref="identify-available-resource">
-          <name>Payment to be made</name>
-          <instances>
-            <instance ref="Dai2">
-              <name>Dai resource 2</name>
-              <properties>
-                <property>
-                  <name>resource type</name>
-                  <value>Dai</value>
-                </property>
-                <property>
-                  <name>amount</name>
-                  <value>10000</value>
-                </property>
-                <property>
-                  <name>from</name>
-                  <value>Party200</value>
-                </property>
-              </properties>
-            </instance>
-          </instances>
-        </stimulus>
       </stimuli>
     </event>
 
@@ -1504,7 +1482,7 @@
     </event>
 
     <event xml:id="make-an-order2">
-      <name>Buyer: Okay, here is an order (contract) for red bikes</name>
+      <name>Buyer: Okay, here is an order for red bikes</name>
       <document-type>Order</document-type>
       <sender>buyer</sender>
       <receiver>seller</receiver>
@@ -1556,15 +1534,23 @@
             </instance>
           </instances>
         </stimulus>
-        <stimulus ref="modify-available-resource" target="Dai2">
-          <name>Change payment to be made</name>
+        <stimulus ref="identify-available-resource">
+          <name>Payment to be made</name>
           <instances>
             <instance ref="Dai2">
               <name>Dai resource 2</name>
               <properties>
                 <property>
+                  <name>resource type</name>
+                  <value>Dai</value>
+                </property>
+                <property>
                   <name>amount</name>
                   <value>5000</value>
+                </property>
+                <property>
+                  <name>from</name>
+                  <value>Party200</value>
                 </property>
               </properties>
             </instance>
