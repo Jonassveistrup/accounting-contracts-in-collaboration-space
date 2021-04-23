@@ -14,5 +14,7 @@ April 2021
 A research collaboration led by Jonas Sveistrup Soegaard and William McCarthy with Lasse Herskind and G. Ken Holman
 
 https://gkenholman.page.link/oedbtr-202104-pdf - the example scenario PDF file
+
 https://gkenholman.page.link/oedbtr-202104-video - the narration video
+
 https://gkenholman.page.link/oedbtr-202104-transcript - the narration transcript
