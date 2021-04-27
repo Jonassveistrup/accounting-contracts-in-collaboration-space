@@ -11,7 +11,7 @@ An illustration of an ISO/IEC 15944-21 Open-edi* Distributed Business Transactio
 
 April 2021
 
-A research collaboration led by Jonas Sveistrup Soegaard and William McCarthy with Lasse Herskind and G. Ken Holman
+A research collaboration led by Jonas Sveistrup Soegaard and William McCarthy with Lasse Herskind and G. Ken Holman. If you want to read our paper, please contact Bill at mccarthy(at)broad.msu.edu.
 
 https://gkenholman.page.link/oedbtr-202104-pdf - the example scenario PDF file
 
