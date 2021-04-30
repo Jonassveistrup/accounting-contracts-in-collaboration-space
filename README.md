@@ -9,7 +9,7 @@ The author team
 
 An illustration of an ISO/IEC 15944-21 Open-edi* Distributed Business Transaction Repository (OeDBTR) immutable record of business transactions in accounting collaboration space
 
-April 2021
+April 30, 2021 - https://www.linkedin.com/pulse/oedbtr-illustration-ontology-primitives-business-contracts-holman
 
 A research collaboration led by Jonas Sveistrup Soegaard and William McCarthy with Lasse Herskind and G. Ken Holman. If you want to read our paper, please contact Bill at mccarthy(at)broad.msu.edu.
 
