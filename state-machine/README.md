@@ -18,6 +18,8 @@ This directory contains the following artefacts documenting the running of a par
   - the cover pages used in the narration video
 - `scenario-paper-narration-video-transcript.pdf`
   - a complete transcript of the narration video
+- `AAA-SPARK-2020-06-McCarthy-keynote-slides-with-links.pdf`
+  - excerpted slides with hyperlinks cited in the video
 
 ## Narration video of the state machine scenario PDF
 
@@ -32,3 +34,11 @@ https://gkenholman.page.link/oedbtr-202104-pdf - the example scenario PDF file
 https://gkenholman.page.link/oedbtr-202104-video - the narration video
 
 https://gkenholman.page.link/oedbtr-202104-transcript - the narration transcript
+
+## Background video describing REA principles
+
+In June 2020 Bill recorded an excellent American Accounting Association SPARK keynote video describing the history of the Resource Entity Agent (REA) model, its principles, and the overview relationship of OeDBTR directly to REA. This is an excellent introduction to REA that is geared to accountants.
+
+https://gkenholman.page.link/rea-202006-video - the keynote video (50 minutes)
+
+https://gkenholman.page.link/rea-202006-pdf - excerpted keynote slides with links
